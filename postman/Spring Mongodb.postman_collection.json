@@ -70,6 +70,70 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Airbnb - topReviews",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/airbnb/topRatedListings?country=US&maxPrice=500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"airbnb",
+						"topRatedListings"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "US"
+						},
+						{
+							"key": "maxPrice",
+							"value": "500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airbnb - topReviews Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/airbnb/topRatedPerCountry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"airbnb",
+						"topRatedPerCountry"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

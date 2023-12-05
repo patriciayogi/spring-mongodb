@@ -1,26 +1,34 @@
 package com.pyogi.mongodb.airbnb.model;
 
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Builder
-@EqualsAndHashCode
-@ToString
+@Data
 public class ListingsAndReviews {
     @Id
-    public String _id;
+    private String _id;
 
-    public String listingUrl;
-    public String name;
-    public String space;
-    public String description;
-    public String neighborhoodOverview;
-    public String propertyType;
-    public String roomType;
-    public String minimumNights;
-    public String maximumNights;
-    public String accommodates;
+    private String listingUrl;
+    private String name;
+    private String space;
+    private String description;
+    private String neighborhoodOverview;
+    private String propertyType;
+    private String roomType;
+    private String minimumNights;
+    private String maximumNights;
+    private String accommodates;
+    private String number_of_reviews;
+    private Float price;
+    private Address address;
+
+    @Data
+    class Address {
+        private String street;
+        private String country;
+        private String countryCode;
+    }
 
 }

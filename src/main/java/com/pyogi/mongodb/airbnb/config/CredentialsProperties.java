@@ -12,6 +12,6 @@ public class CredentialsProperties {
 	private String user;
 	private String password;
 	private String cluster;
-	private String collection;
+	private String name;
 
 }

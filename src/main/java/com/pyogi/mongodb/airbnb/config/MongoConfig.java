@@ -5,32 +5,37 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 
 @Configuration
-public class MongoConfig extends AbstractMongoClientConfiguration {
+public class MongoConfig {
 
     @Autowired
     private CredentialsProperties config;
-    
-    @Override
-    protected String getDatabaseName() {
-        return config.getCollection();
-    }
 
-    @Override
-    public MongoClient mongoClient() {
+    @Bean
+    public MongoClient mongo() {
+        StringBuilder uri = new StringBuilder("mongodb+srv://")
+                .append(config.getUser())
+                .append(":")
+                .append(config.getPassword())
+                .append("@")
+                .append(config.getCluster());
 
-        String uri = "mongodb+srv://" + config.getUser() + ":" + config.getPassword() + "@" + config.getCluster();
-
-        ConnectionString connectionString = new ConnectionString(uri);
+        ConnectionString connectionString = new ConnectionString(uri.toString());
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .build();
 
         return MongoClients.create(mongoClientSettings);
+    }
+
+    @Bean
+    public MongoTemplate mongoTemplate() throws Exception {
+        return new MongoTemplate(mongo(), config.getName());
     }
 
 }
