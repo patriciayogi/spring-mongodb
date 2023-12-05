@@ -1,4 +1,4 @@
-package com.pyogi.mongodb.model;
+package com.pyogi.mongodb.airbnb.model;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;

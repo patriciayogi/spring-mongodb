@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "e4c587f0-367d-4842-898d-fd91bc7a558d",
+		"name": "Spring Mongodb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Airbnb - List by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/airbnb/name?name=New York City - Upper West Side Apt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"airbnb",
+						"name"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "New York City - Upper West Side Apt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airbnb - List by Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "New York City - Upper West Side Apt",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/airbnb/id?id=10109896",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"airbnb",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "10109896"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,10 +1,10 @@
-package com.pyogi.mongodb.config;
+package com.pyogi.mongodb.airbnb.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
-@ConfigurationProperties( "database")
+@ConfigurationProperties("database")
 @ConfigurationPropertiesScan
 @Data
 public class CredentialsProperties {
