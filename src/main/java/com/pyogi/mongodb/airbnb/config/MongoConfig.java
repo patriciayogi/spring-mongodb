@@ -14,18 +14,11 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 public class MongoConfig {
 
     @Autowired
-    private CredentialsProperties config;
+    private CredentialsProperties credentialsProperties;
 
     @Bean
     public MongoClient mongo() {
-        StringBuilder uri = new StringBuilder("mongodb+srv://")
-                .append(config.getUser())
-                .append(":")
-                .append(config.getPassword())
-                .append("@")
-                .append(config.getCluster());
-
-        ConnectionString connectionString = new ConnectionString(uri.toString());
+        ConnectionString connectionString = credentialsProperties.getConnectionString();
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .build();
@@ -35,7 +28,7 @@ public class MongoConfig {
 
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
-        return new MongoTemplate(mongo(), config.getName());
+        return new MongoTemplate(mongo(), credentialsProperties.getName());
     }
 
 }
